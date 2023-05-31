@@ -1,7 +1,12 @@
+import Navbar from '@/components/Navbar'
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Space_Mono } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const space_mono = Space_Mono({
+  weight:['400', '700'],
+  subsets: ['latin'],
+  
+})
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +20,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={space_mono.className}>
+        <div className="grid min-h-screen place-content-center bg-slate-900 text-white p-4 ">
+          <div className="sm:w-[500px] md:w-[600px] lg:w-[700px]">
+            <Navbar/>
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   )
 }
